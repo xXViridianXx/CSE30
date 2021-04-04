@@ -12,7 +12,8 @@ def power_remainder(n, b, r):
 def common_terms(g, h):
 
     x = next(g)
-    y = next(g)
+    y = next(h)
+
 
     while True:
         if y == x:
