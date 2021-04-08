@@ -28,7 +28,7 @@ if __name__=='__main__':
 
     A = power_remainder(2, 3, 1)
     B = power_remainder(3, 5, 4)
-    C = common_terms(power_remainder(2, 3, 1), power_remainder(3, 5, 4))
+    C = common_terms(power_remainder(3, 5, 4), power_remainder(2, 3, 1))
 
     print()
     for i in range(15):
