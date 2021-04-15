@@ -1,20 +1,3 @@
-# import sys
-#
-# def F(n):
-#     if n == 0:
-#         return 0
-#     if n <=1:
-#         return 1
-#
-#     return F(n-1) + F(n-2)
-#
-#
-#
-# if __name__=='__main__':
-# 	n = int(sys.argv[1])
-#
-#
-# 	print(F(n))
 
 #------------------------------------------------------------------------------
 #  Aniket Pratap
@@ -23,16 +6,6 @@
 #  pa2
 #  Queens.py
 #------------------------------------------------------------------------------
-
-
-#------------------------------------------------------------------------------
-#  Aniket Pratap
-#  1825275
-#  CSE 30-02 Spring 2021
-#  pa2
-#  Queens.py
-#------------------------------------------------------------------------------
-
 import sys
 
 def createBoard(n):
@@ -65,7 +38,6 @@ def removeQueen(B, i, j):
 
     return B
 
-    pass
 def findSolutions(B, i, mode):
     sum = 0
     if i > len(B)-1:
@@ -79,10 +51,6 @@ def findSolutions(B, i, mode):
                 sum  += findSolutions(B, i+1, mode)
                 removeQueen(B, i, j)
     return sum
-
-
-
-    pass
 
 def printBoard(B):
     j = 0
@@ -102,7 +70,7 @@ def main():
         n = sys.argv[1]
         if n.strip().isdigit():
             n = int(n)
-            print(f'{n}-Queens has {findSolutions(createBoard(n), 1, None)} solutions')
+            print(f'{n}-Queens.py has {findSolutions(createBoard(n), 1, None)} solutions')
         elif isinstance(n, str):
             n = str(n)
             if n != '-v':
@@ -112,23 +80,12 @@ def main():
                 k = sys.argv[2]
                 if k.strip().isdigit():
                     k = int(k)
-                    findSolutions(createBoard(k), 1, n)
-                    print(f'{k}-Queens has {findSolutions(createBoard(k), 1, n)} solutions')
-    if len(sys.argv) == 1 :
+                    print(f'{k}-Queens.py has {findSolutions(createBoard(k), 1, n)} solutions')
+    if len(sys.argv) == 1:
         print('Usage: python3 Queens.py [-v] number')
         print('Option: -v verbose output, print all solutions')
 
-
-
-
-# end
-
-#------------------------------------------------------------------------------
-# closing conditional that calls main()
-#------------------------------------------------------------------------------
 if __name__=='__main__':
-
-
 
    main()
 

@@ -1,6 +1,13 @@
+#------------------------------------------------------------------------------
+#  Aniket Pratap
+#  1825275
+#  CSE 30-02 Spring 2021
+#  la1
+#  Sequence.py
+#------------------------------------------------------------------------------
+
+
 import sys
-
-
 
 def power_remainder(n, b, r):
     i = 1
@@ -24,7 +31,7 @@ def common_terms(g, h):
         if y < x:
             y = next(h)
 
-if __name__=='__main__':
+def main():
 
     A = power_remainder(2, 3, 1)
     B = power_remainder(3, 5, 4)
@@ -37,3 +44,6 @@ if __name__=='__main__':
         # end
     print()
 # end
+
+if __name__=='__main__':
+    main()
