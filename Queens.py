@@ -70,7 +70,7 @@ def main():
         n = sys.argv[1]
         if n.strip().isdigit():
             n = int(n)
-            print(f'{n}-Queens.py has {findSolutions(createBoard(n), 1, None)} solutions')
+            print(f'{n}-Queens has {findSolutions(createBoard(n), 1, None)} solutions')
         elif isinstance(n, str):
             n = str(n)
             if n != '-v':
@@ -80,7 +80,7 @@ def main():
                 k = sys.argv[2]
                 if k.strip().isdigit():
                     k = int(k)
-                    print(f'{k}-Queens.py has {findSolutions(createBoard(k), 1, n)} solutions')
+                    print(f'{k}-Queens has {findSolutions(createBoard(k), 1, n)} solutions')
     if len(sys.argv) == 1:
         print('Usage: python3 Queens.py [-v] number')
         print('Option: -v verbose output, print all solutions')
