@@ -1,42 +1,57 @@
+#------------------------------------------------------------------------------
+#  Aniket Pratap
+#  1825275
+#  CSE 30-02 Spring 2021
+#  la2
+#  Subset.py
+#------------------------------------------------------------------------------
 import sys
 
 
-def printSubsets(B,k,i):
-	if (k == 0 or k == len(B) -1) and 1 in B:
-		print(to_string(B))
-	if k <= (len(B) -1) -i +1 and k > 0:
+def printSubsets(L,n,k,i):
+	if (k == 0 or k == n) and len(L) > 0:
+		print(to_string(L))
+	if k <= n -i +1 and k > 0:
+		L.append(i)
+		printSubsets(L,n, k-1, i+1)
+		L.pop(-1)
+		printSubsets(L,n, k, i+1)
 
-		B[i] = 1
-		printSubsets(B, k-1, i+1)
-		B[i] = 0
-		printSubsets(B, k, i+1)
-
-def to_string(B):
+def to_string(L):
 
 	string = '{'
 
-	for i in range(1, len(B)):
-		if string == '{' and B[i] == 1:
-			string += f'{i}'
-		elif B[i] == 1:
-			string += f',{i}'
-	if 1 not in B:
+	for i in range(1, len(L)):
+		if string == '{':
+			string += f'{L[i]}'
+		else:
+			string += f',{L[i]}'
+	if len(L) < 2:
 		return '{ }'
 	string += '}'
 
 	return string
 
+def usage(word):
+	print(f"cannot parse '{word}' as an int", file=sys.stderr)
+	print('Usage: python3 Subset.py n k (where 0<=k<=n)', file=sys.stderr)
+
 if __name__=='__main__':
-	n = sys.argv[1]
-	if n.strip().isdigit():
-		n = int(n)
-		if len(sys.argv) == 3:
-			k = sys.argv[2]
-			if k.strip().isdigit():
-				k = int(k)
-				B = ['*']
-				if k == 0:
-					print('{ }')
-				for i in range(1, n+1):
-					B.append(0)
-				printSubsets(B, k, 1)
+	if len(sys.argv) > 1:
+		n = sys.argv[1]
+		if n.strip().isdigit():
+			n = int(n)
+			if len(sys.argv) == 3:
+				k = sys.argv[2]
+				if k.strip().isdigit():
+					k = int(k)
+					L = ['*']
+					if k == 0:
+						print('{ }')
+					printSubsets(L,n,k,1)
+				else:
+					usage(k)
+		else:
+			usage(n)
+	elif len(sys.argv) == 1:
+		print('Usage: python3 Subset.py n k (where 0<=k<=n)', file=sys.stderr)

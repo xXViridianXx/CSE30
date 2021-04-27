@@ -42,7 +42,7 @@ def findSolutions(B, i, mode):
     sum = 0
     if i > len(B)-1:
         if mode == '-v':
-            print(printBoard(B))
+            printBoard(B)
         return 1
     else:
         for j in range(1, len(B)):
@@ -62,8 +62,12 @@ def printBoard(B):
             output += f', {B[i][0]}'
     output += ')'
 
-    return output
+    print(output)
 
+def usage():
+    print('Usage: python3 Queens.py [-v] number', file=sys.stderr)
+    print('Option: -v verbose output, print all solutions', file=sys.stderr)
+    exit()
 
 def main():
     if len(sys.argv) > 1:
@@ -74,16 +78,17 @@ def main():
         elif isinstance(n, str):
             n = str(n)
             if n != '-v':
-                print('Usage: python3 Queens.py [-v] number')
-                print('Option: -v verbose output, print all solutions')
+                usage()
             if len(sys.argv) == 3:
                 k = sys.argv[2]
                 if k.strip().isdigit():
                     k = int(k)
                     print(f'{k}-Queens has {findSolutions(createBoard(k), 1, n)} solutions')
+                else:
+                    usage()
     if len(sys.argv) == 1:
-        print('Usage: python3 Queens.py [-v] number')
-        print('Option: -v verbose output, print all solutions')
+        usage()
+
 
 if __name__=='__main__':
 
