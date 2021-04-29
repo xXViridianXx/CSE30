@@ -21,23 +21,26 @@ def to_string(L):
 
 	string = '{'
 
-	for i in range(1, len(L)):
+	for i in range(0, len(L)):
 		if string == '{':
 			string += f'{L[i]}'
 		else:
-			string += f',{L[i]}'
-	if len(L) < 2:
+			string += f', {L[i]}'
+	if len(L) < 1:
 		return '{ }'
 	string += '}'
 
 	return string
 
 def usage(word):
-	print(f"cannot parse '{word}' as an int", file=sys.stderr)
+	print(f"cannot parse '{word}' as int", file=sys.stderr)
+	print('Usage: python3 Subset.py n k (where 0<=k<=n)', file=sys.stderr)
+
+def usage_single():
 	print('Usage: python3 Subset.py n k (where 0<=k<=n)', file=sys.stderr)
 
 if __name__=='__main__':
-	if len(sys.argv) > 1:
+	if 1 < len(sys.argv) <= 3:
 		n = sys.argv[1]
 		if n.strip().isdigit():
 			n = int(n)
@@ -45,13 +48,15 @@ if __name__=='__main__':
 				k = sys.argv[2]
 				if k.strip().isdigit():
 					k = int(k)
-					L = ['*']
-					if k == 0:
-						print('{ }')
+					if k > n or k < 0:
+						usage_single()
+					L = []
 					printSubsets(L,n,k,1)
 				else:
 					usage(k)
+			else:
+				usage_single()
 		else:
 			usage(n)
-	elif len(sys.argv) == 1:
-		print('Usage: python3 Subset.py n k (where 0<=k<=n)', file=sys.stderr)
+	else:
+		usage_single()
