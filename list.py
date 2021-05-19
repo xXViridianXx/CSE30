@@ -1,8 +1,10 @@
-# ------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+#  Aniket Pratap
+#  1825275
+#  CSE 30-02 Spring 2021
+#  pa5
 #  list.py
-#  Definition of the List class, emulating Python's list type. Based on a
-#  linked list data structure.
-# ------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 class _Node(object):
     """Private _Node type."""
@@ -224,20 +226,27 @@ class List(object):
             self[right] = L
             left += 1
             right -= 1
-
     # end
 
     def __getitem__(self, i):
         """
         Return item at position i of self, where -n<=i<=n-1 and n=len(self).
         """
-        if -len(self) <=i<=len(self) -1:
+        if type(i) == str:
+            raise TypeError('list indices must be integers, not str')
+        if 0 <=i<=len(self) -1:
             N = self._front
             for j in range(0, i):
                 N = N.next
             return N.data
+        elif -len(self) <= i < 0:
+            length = len(self)
+            popped = self.pop(i)
+            self.insert(length+i, popped)
+            return popped
         else:
-            raise IndexError('index out of range')
+            raise ValueError('List assignment index out of range')
+            # list indices must be integers
     # end
 
     def __setitem__(self, i, x):
@@ -245,12 +254,19 @@ class List(object):
         Overwrite item at position i of self by x, where -n<=i<=n-1 and 
         n=len(self).
         """
-        if -len(self) <=i<=len(self) -1:
+        if type(i) == str:
+            raise TypeError('list indices must be integers, not str')
+        if 0 <=i<=len(self) -1:
             self.insert(i, x)
             self.pop(i+1)
             return self
+        elif -len(self) <= i < 0:
+            self.insert(i, x)
+            self.pop(i)
+            return self
         else:
-            raise IndexError('index out of range')
+            raise ValueError('List assignment index out of range')
+            # list indices must be integers
     # end
 
     def __add__(self, other):
@@ -302,83 +318,3 @@ class List(object):
 
 # end
 # ------------------------------------------------------------------------------
-
-
-# ------------------------------------------------------------------------------
-#  Test the List type
-# ------------------------------------------------------------------------------
-def main():
-
-    L = List()
-    L.append(1)
-    L.append(2)
-    L.append(3)
-    print(len(L))
-    print(L)
-    print(repr(L))
-
-    A = List()
-    A.append(1)
-    A.append(2)
-    A.append(3)
-    print('A==L :', A == L)
-    A.append(4)
-    print('A==L :', A == L)
-    L.append(5)
-    print(L)
-    print(A)
-    print('A==L is', A == L)
-
-    L.clear()
-    print(len(L))
-    print(L)
-
-    B = A.copy()
-    print(B)
-    print(repr(B))
-    print('A==B :', A == B)
-    print('A is B :', A is B)
-
-    N = List()
-    N.append(1)
-    N.append(3)
-
-    print()
-    print(B)
-    B.insert(0, 'foo')
-    print(B)
-    B.insert(3, 'bar')
-    print(B)
-    B.insert(6, 'one')
-    print(B)
-    B.insert(-2, 'two')
-    print(B)
-    print(repr(B))
-    print(len(B))
-
-    print()
-    print(B.pop(0))
-    print(B)
-    print(B.pop(2))
-    print(B)
-    print(B.pop(5))
-    print(B)
-    print(B.pop(-2))
-    print(B)
-    print(len(B))
-    print()
-    print(A)
-    W = A + 8
-    print(W)
-    print(len(W))
-
-
-# end
-
-
-# ------------------------------------------------------------------------------
-if __name__ == '__main__':
-
-    main()
-
-# end
