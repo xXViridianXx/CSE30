@@ -9,11 +9,11 @@ from rational import *
 from decimal import *
 import sys
 
-def CF(L):
+def CF2R(L):
     if len(L) == 1:
         return Rational(L[0])
     elif len(L) > 1:
-        return Rational(L[0]) + (Rational(1) / CF(L[1:]))
+        return Rational(L[0]) + (Rational(1) / CF2R(L[1:]))
       
 def usage():
     sys.stderr.write('Usage: $ python3 ContinuedFractions.py <input file> <output file>')
@@ -31,7 +31,7 @@ def main():
             for S in lines:
                 L = S.split()
                 R = list(map(int, L))
-                A = CF(R)
+                A = CF2R(R)
                 a = Decimal(A._numer) / Decimal(A._denom)
                 print(A, file=outfile)
                 print(a, file=outfile)

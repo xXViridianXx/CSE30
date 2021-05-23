@@ -58,6 +58,7 @@ def main():
    print( A==C/B )
    print( (A*B)/(C*D)==(A/C)*(B/D) )
    print()
+   print(A.numer)
 
    help(Rational)
 
