@@ -29,10 +29,12 @@ def R2CF(x):
     return gcd_list + R2CF(x)
 
 def GCF2R(L):
-    if len(L) == 1:
-        return Rational(L[0])
+    
     if len(L) == 0:
         return Rational(1)
+
+    if len(L) == 1:
+        return Rational(L[0])
     else:
         return Rational(L[0]) + (Rational(L[1]) / GCF2R(L[2:]))
 
@@ -61,7 +63,7 @@ def pi_gen():
 def main():
     pi_list = []
     gen = pi_gen()
-    for i in range(1, 266):
+    for i in range(268):
         pi_list.append(next(gen))
     getcontext().prec = 101
     S = GCF2R(pi_list)
