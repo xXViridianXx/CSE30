@@ -76,18 +76,19 @@ class Graph:
                for j in adjacent:
                   self._ecs[j] = [1]
             if self._ecs[i] != 0:
-               color_copy = colors
-               for n in self._ecs[i]:
-                  color_copy.remove(n)
-               att_color[i] = color_copy[0]
-               if color_copy[0] not in self._ecs[i]:
-                  self._ecs[i].append(color_copy[0])
+               available = []
+               for n in colors:
+                  if n not in self._ecs[i]:
+                     available.append(n)
+               att_color[i] = available[0]
+               if available[0] not in self._ecs[i]:
+                  self._ecs[i].append(available[0])
                   self._ecs[i].sort()
                   
                               
 
          
-         return self._ecs[1]
+         return att_color[1]
 
 
          
