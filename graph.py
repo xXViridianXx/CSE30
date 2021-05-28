@@ -103,31 +103,6 @@ class Graph:
         return self._color[x]
 
 
-
-#          # for i in sorted_degree:
-#          #    adjacent = self._adj[i]
-#          #    if i == no_constraints:
-#          #       self._color[i] = 1
-#          #       for j in adjacent:
-#          #          self._ecs[j] = [1]
-#          #       vertices.remove(2)
-#          #       finished_vertices.append(i)
-
-#             # if i != no_constraints:
-#             #    available = []
-#             #    for n in colors:
-#             #       if n not in self._ecs[i]:
-#             #          available.append(n)
-#             #    self._color[i] = available[0]
-#             #    # for j in adjacent:
-#             #    #    if available[0] not in self._ecs[j] and j not in finished_vertices:
-#             #    #       self._ecs[j].append(available[0])
-#             #    #       self._ecs[j].sort()
-#             #    # sorted_degree.remove(i)
-#             #    # finished_vertices.append(i)
-#             #    #print(available)
-
-
 # V = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 # E = [(1, 2), (1, 6), (6, 2), (2, 7), (6, 7), (2, 3), (2, 5), (7, 5), (7, 8), (3, 4), (4, 5), (4, 9), (9, 5), (9, 8)]
 # G = Graph(V, E)
@@ -149,16 +124,16 @@ class Graph:
 # print(G.Color())
 # print(G.get_color(5))
 
-V = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-E = [(1,7),(7,12),(7,5),(7,3),(3,2),(5,2),(5,11),(6,9),(6,10),(10,4),(10,15),(15,14),(14,13),(9,13),(13,8)]
-G = Graph(V,E)
+# V = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+# E = [(1,7),(7,12),(7,5),(7,3),(3,2),(5,2),(5,11),(6,9),(6,10),(10,4),(10,15),(15,14),(14,13),(9,13),(13,8)]
+# G = Graph(V,E)
 
-print()
-print(G.vertices)
-print(G.edges)
-print(G.find_best(V))
-print(G.Color())
-print(G.get_color(5))
+# print()
+# print(G.vertices)
+# print(G.edges)
+# print(G.find_best(V))
+# print(G.Color())
+# print(G.get_color(5))
 
 
 
