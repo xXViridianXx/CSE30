@@ -97,31 +97,31 @@ def main():
             G.find_best(getVertices(R))
             colored = G.Color()
             A = printColorsUsed(colored)
-            # print('', file=outfile)
-            # print(A, file=outfile)
-            # print('', file=outfile)
-            # print('vertex    color', file=outfile)
-            # print('----------------', file=outfile)
-            # for vertice, color in colored.items():
-            #     if 0 < vertice < 10:
-            #         print(f' {vertice}         {color}         ', file=outfile)
-            #     elif 10 <= vertice < 100:
-            #         print(f' {vertice}        {color}         ', file=outfile)
-            #     elif 100 <= vertice < 1000:
-            #         print(f'{vertice}       {color}         ', file=outfile)
-            print('')
-            print(A)
-            print('')
-            print('vertex    color')
-            print('----------------')
+            print('', file=outfile)
+            print(A, file=outfile)
+            print('', file=outfile)
+            print('vertex    color', file=outfile)
+            print('----------------', file=outfile)
             for vertice, color in colored.items():
                 if 0 < vertice < 10:
-                    print(f' {vertice}         {color}         ')
+                    print(f' {vertice}         {color}         ', file=outfile)
                 elif 10 <= vertice < 100:
-                    print(f' {vertice}        {color}         ')
+                    print(f' {vertice}        {color}         ', file=outfile)
                 elif 100 <= vertice < 1000:
-                    print(f' {vertice}       {color}         ')
-            print(CheckProperColoring(G))
+                    print(f' {vertice}       {color}         ', file=outfile)
+            # print('')
+            # print(A)
+            # print('')
+            # print('vertex    color')
+            # print('----------------')
+            # for vertice, color in colored.items():
+            #     if 0 < vertice < 10:
+            #         print(f' {vertice}         {color}         ')
+            #     elif 10 <= vertice < 100:
+            #         print(f' {vertice}        {color}         ')
+            #     elif 100 <= vertice < 1000:
+            #         print(f' {vertice}       {color}         ')
+            #print(CheckProperColoring(G))
 
             
 
