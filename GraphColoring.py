@@ -83,7 +83,6 @@ def main():
             in_file = open(sys.argv[1])
             outfile = open(sys.argv[2], 'w')
             lines = in_file.readlines()
-            print('', file=outfile)
             R = []
             for S in lines:
                 L = S.split()
