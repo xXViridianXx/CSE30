@@ -27,7 +27,7 @@ class Class3(Class1):
         print("  in Class3")
 
 
-class Class4(Class2, Class1):
+class Class4(Class2, Class3):
 
     def m(self):
         print("in Class4")
@@ -38,15 +38,9 @@ class Class4(Class2, Class1):
 def main():
 
    x = Class4()
-   y = Class3()
-   z = Class2()
 
    print()
    x.m()
-#    print()
-#    y.m()
-#    print()
-#    z.m()
 
    print()
    print(f'method resolution order for {type(x).__name__}')
